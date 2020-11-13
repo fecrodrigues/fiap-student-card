@@ -3,6 +3,7 @@ package br.com.fiap.transactions.controller
 import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
 import br.com.fiap.transactions.dto.StudentDTO
 import br.com.fiap.transactions.dto.StudentUpdateCartaoDTO
+import br.com.fiap.transactions.service.StudentService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
@@ -14,7 +15,7 @@ class StudentController(
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    fun findAll(): List<StudentDTO> {
+    fun findAll(): List<StudentDTO?>? {
         return studentService.findAll()
     }
 
