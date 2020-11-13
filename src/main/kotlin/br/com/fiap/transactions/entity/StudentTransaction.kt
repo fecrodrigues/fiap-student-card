@@ -11,23 +11,23 @@ data class StudentTransaction (
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name = "TRANSACTION_ID")
         private var transactionID: BigInteger,
 
-        @Column
-        private var studentID: BigInteger,
+        @ManyToOne
+        @JoinColumn(name = "ID", nullable = false)
+        private var student: Student,
 
-        @Column
+        @ManyToOne
+        @JoinColumn(name = "TOKEN_CARD", nullable = false)
+        private var card: Card,
+
+        @Column(name= "TRANSACTION_CODE_EXTERNAL", unique = true)
         private var transactionCodeExternal: String,
-
-        @Column
-        private var cardLastDigits: Integer,
-
-        @Column
-        private var cardBrand: String,
 
         @Column
         private var value: BigDecimal,
 
-        @Column
+        @Column(name= "TRANSACTION_DATE")
         private var transactionDate: Timestamp
 )
