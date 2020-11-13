@@ -5,9 +5,9 @@ import java.math.BigInteger
 
 data class STransactionInsertDTO(
         val studentID: BigInteger,
+        val cardToken: String,
         val transactionCodeExternal: String,
-        val cardLastDigits: Integer?,
-        val cardBrand: String?,
         val value: BigDecimal,
-        val transactionDate: String
+        val transactionDate: String,
+        val status: String = "APPROVED"
 )

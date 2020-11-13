@@ -8,20 +8,20 @@ import javax.persistence.*
 data class Card (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private val id: BigInteger,
+    val id: BigInteger,
 
     @Column(unique = true)
-    private val token_card: String,
+    val token_card: String,
 
     @Column
-    private val number: String,
+    val number: String,
 
     @Column
-    private val cvv: String,
+    val cvv: String,
 
     @Column
-    private val brand: String,
+    val brand: String,
 
     @Column
-    private val validate: String
+    val validate: String
 )

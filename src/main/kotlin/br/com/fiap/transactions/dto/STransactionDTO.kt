@@ -1,15 +1,24 @@
 package br.com.fiap.transactions.dto
 
+import br.com.fiap.transactions.entity.StudentTransaction
 import java.math.BigDecimal
 import java.math.BigInteger
 import java.sql.Timestamp
 
 data class STransactionDTO (
-        val transactionID: BigInteger,
-        val studentID: BigInteger,
-        val transactionCodeExternal: String,
-        val cardLastDigits: Integer?,
-        val cardBrand: String?,
-        val value: BigDecimal,
-        val transactionDate: String
-)
+        var transactionID: BigInteger,
+        var studentID: BigInteger,
+        var cardID: BigInteger,
+        var transactionCodeExternal: String,
+        var value: BigDecimal,
+        var transactionDate: Timestamp
+) {
+  constructor(studentTransaction: StudentTransaction): this (
+      transactionID = studentTransaction.transactionID,
+      studentID = studentTransaction.student.id,
+      cardID = studentTransaction.card.id,
+      transactionCodeExternal = studentTransaction.transactionCodeExternal,
+      value = studentTransaction.value,
+      transactionDate = studentTransaction.transactionDate
+  )
+}

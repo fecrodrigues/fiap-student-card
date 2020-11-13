@@ -40,6 +40,9 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
+	// JSON Web Token
+	implementation("io.jsonwebtoken:jjwt:0.9.1")
+
 	//MySQL Driver
 	runtimeOnly("mysql:mysql-connector-java")
 
