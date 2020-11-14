@@ -10,8 +10,8 @@ data class Card (
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: BigInteger,
 
-    @Column(unique = true)
-    val token_card: String,
+    @Column(name = "TOKEN_CARD", unique = true)
+    val tokenCard: String,
 
     @Column
     val number: String,

@@ -19,7 +19,7 @@ data class Student (
     @Column
     val cpf: String,
 
-    @Column
+    @Column(name = "ADDRESS_ID")
     val addresId: String,
 
     @Column

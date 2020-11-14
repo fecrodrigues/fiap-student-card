@@ -12,25 +12,25 @@ data class StudentTransaction (
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "TRANSACTION_ID")
-        val transactionID: BigInteger,
+        var transactionID: BigInteger?,
 
         @ManyToOne
         @JoinColumn(name = "STUDENT_ID", nullable = false)
-        val student: Student,
+        var student: Student,
 
         @ManyToOne
         @JoinColumn(name = "CARD_ID", nullable = false)
-        val card: Card,
+        var card: Card,
 
         @Column(name= "TRANSACTION_CODE_EXTERNAL", unique = true)
-        val transactionCodeExternal: String,
+        var transactionCodeExternal: String,
 
         @Column
-        val value: BigDecimal,
+        var value: BigDecimal,
 
         @Column(name= "TRANSACTION_DATE")
-        val transactionDate: Timestamp,
+        var transactionDate: Timestamp,
 
         @Column(name = "STATUS")
-        val status: String
+        var status: String
 )

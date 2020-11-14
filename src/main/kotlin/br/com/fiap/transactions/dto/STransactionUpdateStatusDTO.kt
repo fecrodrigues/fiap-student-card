@@ -4,6 +4,6 @@ import java.math.BigInteger
 
 data class STransactionUpdateStatusDTO(
         val transactionID: BigInteger?,
-        val transactionExternalCode: String?,
+        val transactionCodeExternal: String?,
         val status: String
 )

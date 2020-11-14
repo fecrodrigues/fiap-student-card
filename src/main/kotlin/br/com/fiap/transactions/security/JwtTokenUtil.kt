@@ -11,10 +11,10 @@ import java.util.*
 import kotlin.collections.HashMap
 
 @Component
-class JwtTokenUtil {
-
-    @Value("\${jwt.secret}") lateinit var secret: String
-    @Value("\${jwt.expire}") var expire: Long = 0
+class JwtTokenUtil(
+        @Value("\${jwt.secret}") var secret: String,
+        @Value("\${jwt.expire}") var expire: Long
+) {
 
     fun generateToken(login: String): String {
         var claims: Map<String, Object> = HashMap()
