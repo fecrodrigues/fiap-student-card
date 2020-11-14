@@ -15,11 +15,11 @@ data class StudentTransaction (
         val transactionID: BigInteger,
 
         @ManyToOne
-        @JoinColumn(name = "ID", nullable = false)
+        @JoinColumn(name = "STUDENT_ID", nullable = false)
         val student: Student,
 
         @ManyToOne
-        @JoinColumn(name = "TOKEN_CARD", nullable = false)
+        @JoinColumn(name = "CARD_ID", nullable = false)
         val card: Card,
 
         @Column(name= "TRANSACTION_CODE_EXTERNAL", unique = true)

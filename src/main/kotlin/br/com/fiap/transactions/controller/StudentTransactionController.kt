@@ -18,12 +18,16 @@ class StudentTransactionController(
 ) {
 
     @GetMapping("/student/{studentID}")
-    fun listByUser(@PathVariable studentID: BigInteger): List<STransactionDTO> =
-            studentTransactionService.listByUser(studentID)
+    fun listByUser(@PathVariable studentID: BigInteger,
+                   @RequestParam(defaultValue = "1", required = false) page: Integer,
+                   @RequestParam(defaultValue = "20", required = false) quantityPerPage: Integer): List<STransactionDTO> =
+            studentTransactionService.listByUser(studentID, page, quantityPerPage)
 
     @GetMapping("/student/{studentID}/card/{cardID}")
-    fun listByUserAndCard(@PathVariable studentID: BigInteger, @PathVariable cardID: BigInteger): List<STransactionDTO> =
-            studentTransactionService.listByUserAndCard(studentID, cardID)
+    fun listByUserAndCard(@PathVariable studentID: BigInteger, @PathVariable cardID: BigInteger,
+                          @RequestParam(defaultValue = "1", required = false) page: Integer,
+                          @RequestParam(defaultValue = "20", required = false) quantityPerPage: Integer): List<STransactionDTO> =
+            studentTransactionService.listByUserAndCard(studentID, cardID, page, quantityPerPage)
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

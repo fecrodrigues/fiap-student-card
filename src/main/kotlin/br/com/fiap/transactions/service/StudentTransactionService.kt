@@ -12,8 +12,8 @@ import java.math.BigInteger
 interface StudentTransactionService {
 
     fun insert(sTransactionInsertDTO: STransactionInsertDTO): Mono<STransactionDTO>
-    fun listByUser(studentID: BigInteger): List<STransactionDTO>
-    fun listByUserAndCard(studentID: BigInteger, cardID: BigInteger ): List<STransactionDTO>
+    fun listByUser(studentID: BigInteger, page: Integer, quantityPerPage: Integer): List<STransactionDTO>
+    fun listByUserAndCard(studentID: BigInteger, cardID: BigInteger, page: Integer, quantityPerPage: Integer ): List<STransactionDTO>
     fun cancel(sTransactionCancelDTO: STransactionCancelDTO)
     fun updateStatus(sTransactionUpdateStatusDTO: STransactionUpdateStatusDTO): Mono<STransactionDTO>
 
