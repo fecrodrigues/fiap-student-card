@@ -1,5 +1,6 @@
 package br.com.fiap.transactions.entity
 
+import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
 import java.math.BigInteger
 import javax.persistence.*
 
@@ -24,4 +25,7 @@ data class Student (
 
     @Column
     val cardId: String
-)
+){
+    constructor():this(BigInteger.ONE,"","","","",""){}
+    constructor(dto: StudentCreateUpdateDTO):this(BigInteger.ONE,"","","","",""){}
+}

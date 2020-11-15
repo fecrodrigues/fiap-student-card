@@ -9,9 +9,9 @@ jwt:
 
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:mysql://localhost:3306/teste?serverTimezone=UTC
+    username: root
+    password: 1br2e3n4o5
   jpa:
     show-sql: true
 
