@@ -8,20 +8,20 @@ import javax.persistence.*
 data class Student (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private val id: BigInteger,
+    val id: BigInteger,
 
     @Column
-    private val name: String,
+    val name: String,
 
     @Column
-    private val className: String,
+    val className: String,
 
     @Column
-    private val cpf: String,
+    val cpf: String,
+
+    @Column(name = "ADDRESS_ID")
+    val addresId: String,
 
     @Column
-    private val addresId: String,
-
-    @Column
-    private val cardId: String
+    val cardId: String
 )
