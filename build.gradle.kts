@@ -43,6 +43,9 @@ dependencies {
 	// JSON Web Token
 	implementation("io.jsonwebtoken:jjwt:0.9.1")
 
+	//Google GSON
+	implementation("com.google.code.gson:gson:2.8.6")
+
 	//MySQL Driver
 	runtimeOnly("mysql:mysql-connector-java")
 
@@ -50,6 +53,8 @@ dependencies {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("org.springframework.security:spring-security-test")
+	testImplementation(platform("org.junit:junit-bom:5.7.0"))
+	testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
 tasks.withType<Test> {
