@@ -55,6 +55,8 @@ class StudentTransactionRepositoryUnitTests {
     @Test
     fun whenFindByStudentRepository(){
 
+        whenInsertRepository()
+
         val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "", addresId = "")
         val paging: Pageable = PageRequest.of(0, 10)
 
@@ -64,6 +66,8 @@ class StudentTransactionRepositoryUnitTests {
 
     @Test
     fun whenFindByStudentAndCardRepository(){
+
+        whenInsertRepository()
 
         val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "", addresId = "")
         val card = Card(tokenCard = "0313e412-be96-4d7d-9dfa-2aeb311310ab", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")

@@ -38,7 +38,7 @@ class StudentTransactionControllerIntegrationTest(
     private final val generatedCodeExternal: UUID = UUID.randomUUID()
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
+    @WithMockUser(username = "fulano")
     fun insertTransactionsStudent() {
 
         val jwtTokenUtil = JwtTokenUtil(secret, expire)
@@ -73,7 +73,7 @@ class StudentTransactionControllerIntegrationTest(
     }
 
    @Test
-   @WithMockUser(username = "fulano", password = "123456")
+   @WithMockUser(username = "fulano")
    fun getTransactionsByStudent() {
 
        insertTransactionsStudent()
@@ -100,7 +100,7 @@ class StudentTransactionControllerIntegrationTest(
    }
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
+    @WithMockUser(username = "fulano")
     fun getTransactionsByStudentAndCard() {
 
         insertTransactionsStudent()
@@ -126,7 +126,7 @@ class StudentTransactionControllerIntegrationTest(
     }
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
+    @WithMockUser(username = "fulano")
     fun updateTransactionStatus() {
 
         insertTransactionsStudent()
@@ -161,7 +161,7 @@ class StudentTransactionControllerIntegrationTest(
     }
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
+    @WithMockUser(username = "fulano")
     fun cancelTransaction() {
 
         insertTransactionsStudent()
