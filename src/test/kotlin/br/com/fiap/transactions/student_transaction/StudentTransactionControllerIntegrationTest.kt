@@ -1,4 +1,4 @@
-package br.com.fiap.transactions
+package br.com.fiap.transactions.student_transaction
 
 import br.com.fiap.transactions.dto.STransactionCancelDTO
 import br.com.fiap.transactions.dto.STransactionInsertDTO
@@ -24,11 +24,8 @@ import java.math.BigDecimal
 import java.math.BigInteger
 import java.util.*
 
-
 @SpringBootTest
 @AutoConfigureMockMvc
-@TestMethodOrder(MethodOrderer.OrderAnnotation::class)
-@TestInstance(value = TestInstance.Lifecycle.PER_CLASS)
 @Transactional
 class StudentTransactionControllerIntegrationTest(
         @Value("\${jwt.secret}") var secret: String,
@@ -41,8 +38,7 @@ class StudentTransactionControllerIntegrationTest(
     private final val generatedCodeExternal: UUID = UUID.randomUUID()
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
-    @Order(1)
+    @WithMockUser(username = "fulano")
     fun insertTransactionsStudent() {
 
         val jwtTokenUtil = JwtTokenUtil(secret, expire)
@@ -77,8 +73,7 @@ class StudentTransactionControllerIntegrationTest(
     }
 
    @Test
-   @WithMockUser(username = "fulano", password = "123456")
-   @Order(2)
+   @WithMockUser(username = "fulano")
    fun getTransactionsByStudent() {
 
        insertTransactionsStudent()
@@ -105,8 +100,7 @@ class StudentTransactionControllerIntegrationTest(
    }
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
-    @Order(3)
+    @WithMockUser(username = "fulano")
     fun getTransactionsByStudentAndCard() {
 
         insertTransactionsStudent()
@@ -132,8 +126,7 @@ class StudentTransactionControllerIntegrationTest(
     }
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
-    @Order(4)
+    @WithMockUser(username = "fulano")
     fun updateTransactionStatus() {
 
         insertTransactionsStudent()
@@ -168,8 +161,7 @@ class StudentTransactionControllerIntegrationTest(
     }
 
     @Test
-    @WithMockUser(username = "fulano", password = "123456")
-    @Order(5)
+    @WithMockUser(username = "fulano")
     fun cancelTransaction() {
 
         insertTransactionsStudent()

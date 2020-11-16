@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "4f32bb1e-e23a-4b6b-b858-91eeefe20014",
+		"name": "SPRING - Fiap Student Card",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "transactions",
+			"item": [
+				{
+					"name": "Find transactions by student",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmdWxhbm8iLCJleHAiOjE2NTkzMDAyNTMsImlhdCI6MTYwNTMwMDI1M30.3I5c24sYRPeRoA8eujO1MnU2VP_ieeCgm8XlYJxfvBI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/transactions/student/1?page=1&quantityPerPage=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"student",
+								"1"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "quantityPerPage",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Find transaction list by student"
+					},
+					"response": []
+				},
+				{
+					"name": "Find transactions by student and Card",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/transactions/student/1/card/1?page=1&quantityPerPage=10",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"student",
+								"1",
+								"card",
+								"1"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "quantityPerPage",
+									"value": "10"
+								}
+							]
+						},
+						"description": "Find transaction list by student"
+					},
+					"response": []
+				},
+				{
+					"name": "Insert Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentID\": 1,\r\n    \"cardToken\": \"0313e412-be96-4d7d-9dfa-2aeb311310ab\",\r\n    \"transactionCodeExternal\": \"9ee7ab5c-6116-4f20-820d-a590993e07b7\" ,\r\n    \"value\": 52.60,\r\n    \"transactionDate\": \"2020-11-14 10:38:22\",\r\n    \"status\": \"IN_ANALISYS\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionID\": 1,\r\n    \"transactionCodeExternal\": \"9ee7ab5c-6116-4f20-820d-a590993e07b1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/transactions",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Transaction Status",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionCodeExternal\": \"9ee7ab5c-6116-4f20-820d-a590993e07b2\",\r\n    \"status\": \"APPROVED\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/transactions/status/update",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"status",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"fulano\",\r\n    \"password\": \"Pp123456@\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						},
+						"description": "User login"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
