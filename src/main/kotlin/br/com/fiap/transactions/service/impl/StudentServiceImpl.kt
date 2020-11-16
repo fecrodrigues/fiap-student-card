@@ -26,7 +26,7 @@ class StudentServiceImpl (
     }
 
     override fun create(dto: StudentCreateUpdateDTO): Student {
-        return studentRepository.save(Student(dto))
+        return studentRepository.save(Student(BigInteger.ONE,"","","","",""))
     }
 
     override fun update(id: BigInteger, dto: StudentCreateUpdateDTO): Student {
