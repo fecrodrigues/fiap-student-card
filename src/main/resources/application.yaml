@@ -4,7 +4,7 @@ server:
     include-message: always
 
 jwt:
-  secret:
+  secret: afafadfehoj4515adf6a541df6a
   expire: 900000 #15 min
 
 spring:
