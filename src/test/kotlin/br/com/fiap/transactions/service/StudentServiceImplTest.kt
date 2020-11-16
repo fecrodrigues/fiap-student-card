@@ -11,6 +11,7 @@ import org.mockito.Mock
 import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 import org.springframework.boot.test.context.SpringBootTest
+import java.math.BigInteger
 
 @SpringBootTest
 class StudentServiceImplTest{
@@ -35,8 +36,8 @@ class StudentServiceImplTest{
     fun testFindAll_OK(){
         val lista: List<Student> = ArrayList()
 
-        lista.plus(Student())
-        lista.plus(Student())
+        lista.plus(Student(BigInteger.ONE,"","","","",""))
+        lista.plus(Student(BigInteger.ONE,"","","","",""))
 
         Mockito.`when`(repository.findAll()).thenReturn(lista)
 

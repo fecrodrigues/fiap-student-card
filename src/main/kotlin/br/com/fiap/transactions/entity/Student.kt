@@ -25,7 +25,4 @@ data class Student (
 
     @Column
     val cardId: String
-){
-    constructor():this(BigInteger.ONE,"","","","",""){}
-    constructor(dto: StudentCreateUpdateDTO):this(BigInteger.ONE,"","","","",""){}
-}
+)
