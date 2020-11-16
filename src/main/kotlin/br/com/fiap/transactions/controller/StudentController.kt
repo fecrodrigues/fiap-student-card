@@ -4,8 +4,10 @@ import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
 import br.com.fiap.transactions.dto.StudentDTO
 import br.com.fiap.transactions.dto.StudentUpdateCartaoDTO
 import br.com.fiap.transactions.service.StudentService
+import javassist.NotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.server.ResponseStatusException
 import java.math.BigInteger
 import java.util.ArrayList
 
@@ -31,7 +33,11 @@ class StudentController(
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     fun findById(@PathVariable id: BigInteger): StudentDTO {
-        return StudentDTO(studentService.findById(id))
+        try{
+            return StudentDTO(studentService.findById(id))
+        } catch (nf: NotFoundException){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, nf.message, nf)
+        }
     }
 
     @PostMapping

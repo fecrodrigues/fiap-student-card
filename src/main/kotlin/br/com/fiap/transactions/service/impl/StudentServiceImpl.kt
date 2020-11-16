@@ -6,6 +6,7 @@ import br.com.fiap.transactions.dto.StudentUpdateCartaoDTO
 import br.com.fiap.transactions.entity.Student
 import br.com.fiap.transactions.repository.StudentRepository
 import br.com.fiap.transactions.service.StudentService
+import javassist.NotFoundException
 import org.springframework.stereotype.Service
 import java.math.BigInteger
 import java.util.*
@@ -21,6 +22,10 @@ class StudentServiceImpl (
 
     override fun findById(id: BigInteger): Student {
         val optStudent =  studentRepository.findById(id)
+
+        if(optStudent.isEmpty){
+            throw NotFoundException("Student is not found!")
+        }
 
         return optStudent.get()
     }
