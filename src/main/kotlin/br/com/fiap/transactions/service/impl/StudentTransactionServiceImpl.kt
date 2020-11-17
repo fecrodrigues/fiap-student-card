@@ -79,6 +79,21 @@ class StudentTransactionServiceImpl(
                 .map { STransactionDTO(it) }
     }
 
+    override fun listByUserToPdf(studentID: BigInteger): List<STransactionDTO> {
+        var student: Student = Student(id = studentID, name = "", addresId = "0", cardId = "0", className = "", cpf = "")
+
+        return studentTransactionRepository
+                .findAllByStudentToPdf(student)
+                .map { STransactionDTO(it) }
+    }
+
+/*    override fun listByUserAndDateToPdf(studentID: BigInteger, startDateAndTime: String, endDateAndTime: String): List<STransactionDTO> {
+        var student: Student = Student(id = studentID, name = "", addresId = "0", cardId = "0", className = "", cpf = "")
+
+        return studentTransactionRepository
+                .findAllByStudentAndDateToPdf(student, startDateAndTime, endDateAndTime)
+                .map { STransactionDTO(it) }
+    }*/
 
     override fun listByUserAndCard(studentID: BigInteger, cardID: BigInteger, page: Integer, quantityPerPage: Integer): Page<STransactionDTO> {
         var student: Student = Student(id = studentID, name = "", addresId = "0", cardId = "0", className = "", cpf = "")

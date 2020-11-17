@@ -1,5 +1,6 @@
 package br.com.fiap.transactions.repository
 
+import br.com.fiap.transactions.dto.STransactionDTO
 import br.com.fiap.transactions.entity.Card
 import br.com.fiap.transactions.entity.Student
 import br.com.fiap.transactions.entity.StudentTransaction
@@ -22,5 +23,12 @@ interface StudentTransactionRepository: PagingAndSortingRepository<StudentTransa
     @Modifying
     @Query("update StudentTransaction st set st.status = ?1 where st.transactionID = ?2")
     fun updateStatusByTransactionID(status: String?, id: BigInteger?): Int
+
+    @Query("select * from student_transaction where student_id = ?1", nativeQuery = true)
+    fun findAllByStudentToPdf(student: Student?): List<StudentTransaction>
+
+/*    @Query("select * from student_transaction where student_id = ?1 and (" +
+            "transaction_date >= ?2 and transaction_date <= ?3", nativeQuery = true)
+    fun findAllByStudentAndDateToPdf(student: Student?, startDateAndTime: String, endDateAndTime: String): List<StudentTransaction>*/
 
 }
