@@ -44,3 +44,10 @@ O Spring Web foi responsável pela criação das rotas e expor a API a um acesso
   
 ### Documentação
   As informações referentes as rotas e funcionalidades do microsserviço podem ser acessadas através do swagger(http://localhost:8082/swagger-ui.html) configurado no projeto.
+  
+  
+## Importação massiva de alunos
+
+A importação massiva encontra-se no repositorio, é recomendado rodar a mesma após ter iniciado esse projeto ao menos uma vez para que o flyway crie as tabelas e parâemtros necessários.
+
+https://github.com/fecrodrigues/fiap-student-batch
