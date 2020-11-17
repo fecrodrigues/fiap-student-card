@@ -9,20 +9,20 @@ import javax.persistence.*
 data class Student (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    val id: BigInteger,
+    var id: BigInteger?,
 
     @Column
-    val name: String,
+    var name: String,
 
     @Column
-    val className: String,
+    var className: String,
 
     @Column
-    val cpf: String,
+    var cpf: String,
 
     @Column(name = "ADDRESS_ID")
-    val addresId: String,
+    var addresId: String,
 
     @Column
-    val cardId: String
+    var cardId: String
 )
