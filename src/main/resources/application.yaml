@@ -4,14 +4,13 @@ server:
     include-message: always
 
 jwt:
-  secret:
+  secret: abc123#%1235$
   expire: 900000 #15 min
 
 spring:
   datasource:
-    url:
-    username:
+    url: jdbc:mysql://localhost:3306/test?useTimezone=true&serverTimezone=UTC
+    username: root
     password:
   jpa:
     show-sql: true
-

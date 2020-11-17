@@ -17,5 +17,7 @@ interface StudentTransactionService {
     fun listByUserAndCard(studentID: BigInteger, cardID: BigInteger, page: Integer, quantityPerPage: Integer ): Page<STransactionDTO>
     fun cancel(sTransactionCancelDTO: STransactionCancelDTO)
     fun updateStatus(sTransactionUpdateStatusDTO: STransactionUpdateStatusDTO): STransactionDTO
+    fun listByUserToPdf(studentID: BigInteger): List<STransactionDTO>
+    //fun listByUserAndDateToPdf(studentID: BigInteger, startDateAndTime: String, endDateAndTime: String): List<STransactionDTO>
 
 }
