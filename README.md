@@ -34,13 +34,13 @@ Para o serviço de persistência dos dados foi utilizado o Spring Data, adiciona
 
 O Spring Web foi responsável pela criação das rotas e expor a API a um acesso externo.
 
-## Justificativas da composição do projeto
+## Inicialização e Documentação
 
    
 ### Inicialização   
+   Antes de iniciar o projeto deve-se informar os parâemetros de configuração dentro do arquivo **application.yaml**, para o envio de e-mail é necessário utilizar as credenciais de acesso de uma conta do Gmail.
   A inicialização é feita de maneira simplificada pelo uso do spring boot sendo necessário apenas executar a classe **TransactionsApplication**. 
-  Para o envio de e-mail é necessário utilizar as credenciais de acesso de uma conta do Gmail.
-  
+ 
   
 ### Documentação
   As informações referentes as rotas e funcionalidades do microsserviço podem ser acessadas através do swagger(http://localhost:8082/swagger-ui.html) configurado no projeto.
