@@ -43,4 +43,4 @@ O Spring Web foi responsável pela criação das rotas e expor a API a um acesso
   
   
 ### Documentação
-  As informações referentes as rotas e funcionalidades do microsserviço podem ser acessadas através do swagger(http://localhost:8080/localiza-drone/swagger-ui.html) configurado no projeto.
+  As informações referentes as rotas e funcionalidades do microsserviço podem ser acessadas através do swagger(http://localhost:8080/swagger-ui.html) configurado no projeto.
