@@ -1,12 +1,11 @@
 package br.com.fiap.transactions.entity
 
-import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
 import java.math.BigInteger
 import javax.persistence.*
 
 @Entity
 @Table(name = "STUDENT")
-data class Student (
+data class Student(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     val id: BigInteger,
@@ -24,5 +23,8 @@ data class Student (
     val addresId: String,
 
     @Column
-    val cardId: String
+    val cardId: String,
+
+    @Column
+    var ra: String?
 )

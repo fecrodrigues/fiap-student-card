@@ -36,8 +36,8 @@ class StudentServiceImplTest{
     fun testFindAll_OK(){
         val lista: List<Student> = ArrayList()
 
-        lista.plus(Student(BigInteger.ONE,"","","","",""))
-        lista.plus(Student(BigInteger.ONE,"","","","",""))
+        lista.plus(Student(BigInteger.ONE, "", "", "", "", "", ""))
+        lista.plus(Student(BigInteger.ONE, "", "", "", "", "", ""))
 
         Mockito.`when`(repository.findAll()).thenReturn(lista)
 

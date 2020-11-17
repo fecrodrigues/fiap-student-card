@@ -12,12 +12,10 @@ import br.com.fiap.transactions.repository.StudentRepository
 import br.com.fiap.transactions.repository.StudentTransactionRepository
 import br.com.fiap.transactions.service.StudentTransactionService
 import javassist.NotFoundException
-import org.aspectj.weaver.ast.Not
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
-import reactor.core.publisher.Mono
 import java.math.BigInteger
 import java.sql.Timestamp
 import java.text.ParseException
@@ -70,7 +68,7 @@ class StudentTransactionServiceImpl(
     }
 
     override fun listByUser(studentID: BigInteger, page: Integer, quantityPerPage: Integer): Page<STransactionDTO> {
-        var student: Student = Student(id = studentID, name = "", addresId = "0", cardId = "0", className = "", cpf = "")
+        var student: Student = Student(id = studentID, name = "", className = "", cpf = "", addresId = "0", cardId = "0", ra = "")
 
         val paging: Pageable = PageRequest.of(page.toInt() -1, quantityPerPage.toInt())
 
@@ -80,7 +78,7 @@ class StudentTransactionServiceImpl(
     }
 
     override fun listByUserToPdf(studentID: BigInteger): List<STransactionDTO> {
-        var student: Student = Student(id = studentID, name = "", addresId = "0", cardId = "0", className = "", cpf = "")
+        var student: Student = Student(id = studentID, name = "", className = "", cpf = "", addresId = "0", cardId = "0", ra = "")
 
         return studentTransactionRepository
                 .findAllByStudentToPdf(student)
@@ -96,7 +94,7 @@ class StudentTransactionServiceImpl(
     }*/
 
     override fun listByUserAndCard(studentID: BigInteger, cardID: BigInteger, page: Integer, quantityPerPage: Integer): Page<STransactionDTO> {
-        var student: Student = Student(id = studentID, name = "", addresId = "0", cardId = "0", className = "", cpf = "")
+        var student: Student = Student(id = studentID, name = "", className = "", cpf = "", addresId = "0", cardId = "0", ra = "")
         var card: Card = Card(id = cardID, brand = "", cvv = "", number = "", tokenCard = "", validate = "")
 
         val paging: Pageable = PageRequest.of(page.toInt() -1, quantityPerPage.toInt())

@@ -1,14 +1,12 @@
 package br.com.fiap.transactions.service.impl
 
 import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
-import br.com.fiap.transactions.dto.StudentDTO
 import br.com.fiap.transactions.dto.StudentUpdateCartaoDTO
 import br.com.fiap.transactions.entity.Student
 import br.com.fiap.transactions.repository.StudentRepository
 import br.com.fiap.transactions.service.StudentService
 import org.springframework.stereotype.Service
 import java.math.BigInteger
-import java.util.*
 
 @Service
 class StudentServiceImpl (
@@ -26,7 +24,7 @@ class StudentServiceImpl (
     }
 
     override fun create(dto: StudentCreateUpdateDTO): Student {
-        return studentRepository.save(Student(BigInteger.ONE,"","","","",""))
+        return studentRepository.save(Student(BigInteger.ONE, "", "", "", "", "", "" ))
     }
 
     override fun update(id: BigInteger, dto: StudentCreateUpdateDTO): Student {
