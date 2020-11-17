@@ -4,7 +4,7 @@ Criado projeto de uma empresa (FIAP) que está ingressando no segmento de cartõ
 
 ## Justificativas da composição do projeto
 
-A linguagem escolhida para o desenvolvimento foi: <h1>Kotlin</h1>.
+A linguagem escolhida para o desenvolvimento foi: <h3>Kotlin</h3>.
 Foram utilizados diversos módulo do framework Spring
 Foram criadas as duas filas abaixo no Rabbit MQ:
 
