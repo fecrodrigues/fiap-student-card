@@ -5,9 +5,9 @@ import java.math.BigDecimal
 import java.math.BigInteger
 import java.sql.Timestamp
 
-data class STransactionDTO (
+data class STransactionDTO(
         var transactionID: BigInteger?,
-        var studentID: BigInteger,
+        var studentID: BigInteger?,
         var cardID: BigInteger,
         var transactionCodeExternal: String,
         var value: BigDecimal,

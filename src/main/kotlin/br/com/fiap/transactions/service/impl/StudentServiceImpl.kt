@@ -39,11 +39,7 @@ class StudentServiceImpl (
 
     @Transactional
     override fun update(id: BigInteger, dto: StudentCreateUpdateDTO): Student {
-        var uptStudent = findById(id)
-
-        if(uptStudent == null){
-            throw NotFoundException("Student is not found!")
-        }
+        var uptStudent: Student = findById(id) ?: throw NotFoundException("Student is not found!")
 
 
         if(!uptStudent.name.equals(dto.name)){
@@ -68,11 +64,7 @@ class StudentServiceImpl (
     }
 
     override fun updateCartao(id: BigInteger, dto: StudentUpdateCartaoDTO): Student {
-        val uptStudent = findById(id)
-
-        if(uptStudent == null){
-            throw NotFoundException("Student is not found!")
-        }
+        val uptStudent = findById(id) ?: throw NotFoundException("Student is not found!")
 
         if(!uptStudent.cardId.equals(dto.id)){
 
