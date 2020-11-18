@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4f32bb1e-e23a-4b6b-b858-91eeefe20014",
+		"_postman_id": "ea70a644-9fe2-48de-8fc0-ae6e577723c2",
 		"name": "SPRING - Fiap Student Card",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -195,6 +195,43 @@
 								"transactions",
 								"status",
 								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Extract by Email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"meuemail@gmail.com\",\r\n    \"studentID\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/transactions/extrato",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"transactions",
+								"extrato"
 							]
 						}
 					},

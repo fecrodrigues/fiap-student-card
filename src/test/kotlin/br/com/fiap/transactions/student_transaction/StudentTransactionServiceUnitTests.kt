@@ -49,7 +49,7 @@ class StudentTransactionServiceUnitTests {
     @Test
     fun whenSaveTransaction() {
 
-        val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "", addresId = "")
+        val student = Student(id = BigInteger.ONE, name = "", className = "", cpf = "", addresId = "", cardId = "", ra="")
         val card = Card(tokenCard = "0313e412-be96-4d7d-9dfa-2aeb311310ab", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
@@ -88,7 +88,7 @@ class StudentTransactionServiceUnitTests {
     @Test
     fun whenFindTransactionByStudent() {
 
-        val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "0", addresId = "0")
+        val student = Student(id = BigInteger.ONE, name = "", className = "", cpf = "", addresId = "0", cardId = "0", ra="")
         val paging: Pageable = PageRequest.of(0, 10)
 
         val card = Card(tokenCard = "0313e412-be96-4d7d-9dfa-2aeb311310ab", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")
@@ -121,7 +121,7 @@ class StudentTransactionServiceUnitTests {
     @Test
     fun whenFindTransactionByStudentAndCard() {
 
-        val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "0", addresId = "0")
+        val student = Student(id = BigInteger.ONE, name = "", className = "", cpf = "", addresId = "0", cardId = "0", ra="")
         val paging: Pageable = PageRequest.of(0, 10)
 
         val card = Card(tokenCard = "", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")
@@ -154,7 +154,7 @@ class StudentTransactionServiceUnitTests {
     @Test
     fun whenCancel() {
 
-        val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "", addresId = "")
+        val student = Student(id = BigInteger.ONE, name = "", className = "", cpf = "", addresId = "", cardId = "", ra="")
         val card = Card(tokenCard = "0313e412-be96-4d7d-9dfa-2aeb311310ab", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
@@ -186,7 +186,7 @@ class StudentTransactionServiceUnitTests {
     @Test
     fun whenUpdateStatusTransactionCodeExternal() {
 
-        val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "", addresId = "")
+        val student = Student(id = BigInteger.ONE, name = "", className = "", cpf = "", addresId = "", cardId = "", ra="")
         val card = Card(tokenCard = "0313e412-be96-4d7d-9dfa-2aeb311310ab", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
@@ -224,7 +224,7 @@ class StudentTransactionServiceUnitTests {
     @Test
     fun whenUpdateStatusTransactionID() {
 
-        val student = Student(id = BigInteger.ONE, name = "", cpf = "", className = "", cardId = "", addresId = "")
+        val student = Student(id = BigInteger.ONE, name = "", className = "", cpf = "", addresId = "", cardId = "", ra="")
         val card = Card(tokenCard = "0313e412-be96-4d7d-9dfa-2aeb311310ab", id = BigInteger.ONE, validate = "", number = "", cvv = "", brand = "")
 
         val dateFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")

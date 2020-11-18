@@ -1,9 +1,9 @@
 package br.com.fiap.transactions.controller
 
-import br.com.fiap.transactions.dto.STransactionCancelDTO
-import br.com.fiap.transactions.dto.STransactionDTO
-import br.com.fiap.transactions.dto.STransactionInsertDTO
-import br.com.fiap.transactions.dto.STransactionUpdateStatusDTO
+import br.com.fiap.transactions.config.FilePath
+import br.com.fiap.transactions.dto.*
+import br.com.fiap.transactions.email.CreatePdf
+import br.com.fiap.transactions.email.SendEmail
 import br.com.fiap.transactions.service.StudentTransactionService
 import io.swagger.annotations.Api
 import javassist.NotFoundException
@@ -78,5 +78,47 @@ class StudentTransactionController(
         }
     }
 
+    @PostMapping("/extrato")
+    fun sendEmail(@RequestBody extratoEmailDTO: ExtratoEmailDTO) {
+        try {
+            var result= studentTransactionService.listByUserToPdf(extratoEmailDTO.studentID)
+            println(result)
+            println(result.size)
+            println(result[0].status)
+            println(FilePath().filePath(extratoEmailDTO.studentID.toString()))
+            CreatePdf().createPdf(result)
+            SendEmail().sendEmail(extratoEmailDTO,result)
+            //return new ResponseEntity("Email sent with success", HttpStatus.OK);
+
+        }  catch (nf: NotFoundException) {
+            throw ResponseStatusException(
+                    HttpStatus.NOT_FOUND, nf.message, nf)
+        } catch (e: Exception) {
+            throw ResponseStatusException(
+                    HttpStatus.BAD_REQUEST, e.message, e)
+        }
+    }
+
+/*    @PostMapping("/extrato/bydate")
+    fun sendEmailByDate(@RequestBody extratoEmailDTO: ExtratoEmailDTO) {
+        try {
+            var result= studentTransactionService.listByUserAndDateToPdf(extratoEmailDTO.studentID, extratoEmailDTO.startDateAndTime, extratoEmailDTO.endDateAndTime)
+            println(result)
+            println(result.size)
+            println(result[0].status)
+            println(FilePath().filePath(extratoEmailDTO.studentID.toString()))
+            CreatePdf().createPdf(result)
+            SendEmail().sendEmail(extratoEmailDTO,result)
+
+
+
+            //return new ResponseEntity("Email sent with success", HttpStatus.OK);
+
+
+        } catch (e: Exception) {
+
+        }
+    }*/
 
 }
+

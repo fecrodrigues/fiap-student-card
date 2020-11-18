@@ -25,6 +25,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation ("org.springframework.boot:spring-boot-starter-mail")
 
 	//Reactor e Coroutines
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
@@ -45,6 +46,9 @@ dependencies {
 
 	//Google GSON
 	implementation("com.google.code.gson:gson:2.8.6")
+
+	//PDF Creator (iText)
+	implementation("com.itextpdf:itextpdf:5.0.6")
 
 	//MySQL Driver
 	runtimeOnly("mysql:mysql-connector-java")

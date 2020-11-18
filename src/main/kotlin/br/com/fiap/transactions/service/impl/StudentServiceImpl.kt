@@ -1,7 +1,6 @@
 package br.com.fiap.transactions.service.impl
 
 import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
-import br.com.fiap.transactions.dto.StudentDTO
 import br.com.fiap.transactions.dto.StudentUpdateCartaoDTO
 import br.com.fiap.transactions.entity.Student
 import br.com.fiap.transactions.repository.StudentRepository
@@ -10,7 +9,6 @@ import javassist.NotFoundException
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.math.BigInteger
-import java.util.*
 
 @Service
 class StudentServiceImpl (
