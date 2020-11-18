@@ -4,8 +4,10 @@ import br.com.fiap.transactions.dto.StudentCreateUpdateDTO
 import br.com.fiap.transactions.dto.StudentDTO
 import br.com.fiap.transactions.dto.StudentUpdateCartaoDTO
 import br.com.fiap.transactions.service.StudentService
+import javassist.NotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.server.ResponseStatusException
 import java.math.BigInteger
 import java.util.ArrayList
 
@@ -31,30 +33,54 @@ class StudentController(
     @GetMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     fun findById(@PathVariable id: BigInteger): StudentDTO {
-        return StudentDTO(studentService.findById(id))
+        try{
+            return StudentDTO(studentService.findById(id))
+        } catch (nf: NotFoundException){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, nf.message, nf)
+        }
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody dto: StudentCreateUpdateDTO): StudentDTO {
-        return StudentDTO(studentService.create(dto))
+        try{
+            return StudentDTO(studentService.create(dto))
+        }catch (ex: Exception){
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.message, ex)
+        }
     }
 
     @PutMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
     fun update(@PathVariable id: BigInteger, @RequestBody dto: StudentCreateUpdateDTO): StudentDTO {
-        return StudentDTO(studentService.update(id, dto))
+        try{
+            return StudentDTO(studentService.update(id, dto))
+        } catch (nf: NotFoundException){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, nf.message, nf)
+        }catch (ex: Exception){
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.message, ex)
+        }
     }
 
     @PatchMapping("{id}/cartao")
     @ResponseStatus(HttpStatus.OK)
     fun updateCartao(@PathVariable id: BigInteger, @RequestBody dto: StudentUpdateCartaoDTO): StudentDTO {
-        return StudentDTO(studentService.updateCartao(id, dto))
+        try{
+            return StudentDTO(studentService.updateCartao(id, dto))
+        } catch (nf: NotFoundException){
+            throw ResponseStatusException(HttpStatus.NOT_FOUND, nf.message, nf)
+        }catch (ex: Exception){
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.message, ex)
+        }
     }
 
     @PatchMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     fun delete(@PathVariable id: BigInteger) {
-        studentService.delete(id)
+        try{
+            studentService.delete(id)
+        }catch (ex: Exception){
+            throw ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.message, ex)
+        }
     }
 }

@@ -113,7 +113,7 @@ class StudentTransactionServiceUnitTests {
         val mockListStudent: Page<StudentTransaction> = PageImpl(studentTransactions)
         given(studentTransactionRepository.findAllByStudent(paging, student)).willReturn(mockListStudent)
 
-        val listStudentTransaction: Page<STransactionDTO> = studentTransactionService.listByUser(student.id, Integer(1), Integer(10))
+        val listStudentTransaction: Page<STransactionDTO> = studentTransactionService.listByUser(student.id!!, Integer(1), Integer(10))
         assert(listStudentTransaction.totalElements == 1L)
 
     }
@@ -146,7 +146,7 @@ class StudentTransactionServiceUnitTests {
         val mockListStudent: Page<StudentTransaction> = PageImpl(studentTransactions)
         given(studentTransactionRepository.findAllByStudentAndCard(paging, student, card)).willReturn(mockListStudent)
 
-        val listStudentTransaction: Page<STransactionDTO> = studentTransactionService.listByUserAndCard(student.id, card.id, Integer(1), Integer(10))
+        val listStudentTransaction: Page<STransactionDTO> = studentTransactionService.listByUserAndCard(student.id!!, card.id, Integer(1), Integer(10))
         assert(listStudentTransaction.totalElements == 1L)
 
     }
